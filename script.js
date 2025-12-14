@@ -105,7 +105,7 @@ const projects = [
     { name: "Ventilation Controller", description: "Ventilation control system with Modbus communication, real-time control using interrupts and MQTT for remote monitoring.", link: "https://github.com/Nadim-2022/Ventilation-Device" },
     { name: "Flight Simulator", description: "Python-based terminal game simulating passenger transport between Finnish airports with MySQL database integration.", link: "https://github.com/abhinav-kayastha/Flight-Simulator/blob/main/main.py" },
     { name: "Personal Cloud Infrastructure", description: "Self-hosted private cloud on Raspberry Pi using Nextcloud AIO, Docker, Portainer and Cloudflare Tunnel for secure file access.", link: "https://github.com/abhinav-kayastha/nextcloud-aio-with-docker-and-cloudflare-tunnels" },
-    { name: "Embedded Linux Development with Yocto", description: "Embedded Linux workflow optimization using Yocto Project for ARM-based systems with CMake and ARM GCC toolchain.", link: "#" },
+    { name: "Embedded Linux Development with Yocto", description: "Embedded Linux workflow optimization using Yocto Project for ARM-based systems with CMake and ARM GCC toolchain."},
 ];
 
 const languages = ["English (Native)", "Maithili (Native)", "Nepali (Native)", "Finnish (Conversational)", "Swedish (Basic)"];
