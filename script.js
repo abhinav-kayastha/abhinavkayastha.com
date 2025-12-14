@@ -86,7 +86,7 @@ const education = [
         school: "Metropolia University of Applied Sciences",
         city: "Espoo",
         country: "Finland",
-        degree: "Bachelor of Engineering, Information Technology (IoT – Embedded Devices)",
+        degree: "Bachelor of Engineering, Information Technology (IoT: Embedded Devices)",
         start: " August 2022",
         end: "May 2025",
         points: ["Graduated a year early. Degree was 4 years but finished in 3."]
