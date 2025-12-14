@@ -2,42 +2,90 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Welcome to Abhinav Kayastha's Website</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #0d1117;
-      color: #c9d1d9;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-    }
-
-    a {
-      color: #58a6ff;
-      font-size: 1.2rem;
-      text-decoration: none;
-      margin-top: 1rem;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abhinav Kayastha — Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  <h1>Abhinav Kayastha</h1>
-  <p>Welcome to my site.</p>
+  <header class="site-header">
+    <div class="container header-content">
+      <div class="identity">
+        <img id="profile-photo" alt="Profile photo" />
+        <div>
+          <h1 id="name">Your Name</h1>
+          <p id="tagline">Short description about yourself.</p>
+          <div class="links">
+            <a id="link-linkedin" href="#" target="_blank" rel="noopener">LinkedIn</a>
+            <a id="link-github" href="#" target="_blank" rel="noopener">GitHub</a>
+            <a id="link-email" href="#" target="_blank" rel="noopener">Email</a>
+          </div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#publications">Publications</a>
+        <a href="#projects">Projects</a>
+        <a href="#languages">Languages</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="skills" class="card">
+      <h2>Core Skills & Technologies</h2>
+      <div class="skills-grid">
+        <div class="skill-col">
+          <h3>Programming Languages</h3>
+          <ul id="skills-languages"></ul>
+        </div>
+        <div class="skill-col">
+          <h3>Technologies</h3>
+          <ul id="skills-technologies"></ul>
+        </div>
+        <div class="skill-col">
+          <h3>Tools</h3>
+          <ul id="skills-tools"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="card">
+      <h2>Work Experience</h2>
+      <div id="experience-list"></div>
+    </section>
+
+    <section id="education" class="card">
+      <h2>Education</h2>
+      <ul id="education-list" class="lined"></ul>
+    </section>
+
+    <section id="publications" class="card">
+      <h2>Publications</h2>
+      <ul id="publications-list" class="lined"></ul>
+    </section>
+
+    <section id="projects" class="card">
+      <h2>Projects</h2>
+      <div id="projects-list" class="projects-grid"></div>
+    </section>
+
+    <section id="languages" class="card">
+      <h2>Languages</h2>
+      <ul id="languages-list" class="inline"></ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="copyright-year"></span> Abhinav Kayastha. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 
 </html>
