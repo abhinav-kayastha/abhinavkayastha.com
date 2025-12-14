@@ -84,28 +84,123 @@ const experience = [
 const education = [
     {
         school: "Metropolia University of Applied Sciences",
+        city: "Espoo",
+        country: "Finland",
         degree: "Bachelor of Engineering, Information Technology (IoT – Embedded Devices)",
-        year: "2025",
-        details: "Graduated a year early. Degree was 4 years but finished in 3."
+        start: " August 2022",
+        end: "May 2025",
+        points: ["Graduated a year early. Degree was 4 years but finished in 3."]
     },
     {
         school: "Kuopion Lyseon lukio",
+        city: "Kuopio",
+        country: "Finland",
         degree: "Highschool Diploma, IB: International Baccalaureate",
-        year: "2022"
+        start: "Aug 2019",
+        end: "May 2022",
     }
 ];
 
 const publications = [
-    { title: "YOLO for Urban Traffic: Insights from Helsinki Port Surveillance", venue: "SoCTA2024", year: "2025", link: "https://link.springer.com/chapter/10.1007/978-981-96-5958-6_2" },
-    { title: "Analysis and Visualization of Uplink Interference in LTE and 5G Networks Using RIP Counters", venue: "Theseus", year: "2025", link: "https://www.theseus.fi/handle/10024/886867" }
+    { 
+        title: "YOLO for Urban Traffic: Insights from Helsinki Port Surveillance", 
+        venue: "SoCTA2024", 
+        city: "Helsinki",
+        country: "Finland",
+        start: "May 2024",
+        end: "Sep 2025",
+        link: "https://link.springer.com/chapter/10.1007/978-981-96-5958-6_2",
+        points: ["Using YOLO models for real-time surveillance at Helsinki Port, addressing the issues of dataset imbalance, camera angles and weather variations.",
+                "Enhanced dataset accuracy with filter masks using CVAT-based annotation.",
+                "Compared YOLO variants on accuracy, efficiency and inference power to assess trade-offs for surveillance use.",
+                "Achieved “Best Paper Award”, ranked #1 out of 387 papers at SoCTA2024."
+        ]
+    },
+    { 
+        title: "Analysis and Visualization of Uplink Interference in LTE and 5G Networks Using RIP Counters", 
+        venue: "Theseus", 
+        city: "Helsinki",
+        country: "Finland",
+        year: "2025",
+        start: "Jan 2025",
+        end: "May 2025",
+        link: "https://www.theseus.fi/handle/10024/886867",
+        points: ["Creation of a tool to visualize network for interference analysis.",
+          "Tool assists engineers to identify PIM (Passive Intermodulation) 99.95% faster."
+        ]
+    }
 ];  
 
 const projects = [
-    { name: "Smart Bird Feeder", description: "IoT Smart Bird Feeder using Node.js, Express.js, MQTT & WebSockets with real-time monitoring dashboard and SQLite database.", link: "https://github.com/abhinav-kayastha/smart-bird-feeder" },
-    { name: "Ventilation Controller", description: "Ventilation control system with Modbus communication, real-time control using interrupts and MQTT for remote monitoring.", link: "https://github.com/Nadim-2022/Ventilation-Device" },
-    { name: "Flight Simulator", description: "Python-based terminal game simulating passenger transport between Finnish airports with MySQL database integration.", link: "https://github.com/abhinav-kayastha/Flight-Simulator/blob/main/main.py" },
-    { name: "Personal Cloud Infrastructure", description: "Self-hosted private cloud on Raspberry Pi using Nextcloud AIO, Docker, Portainer and Cloudflare Tunnel for secure file access.", link: "https://github.com/abhinav-kayastha/nextcloud-aio-with-docker-and-cloudflare-tunnels" },
-    { name: "Embedded Linux Development with Yocto", description: "Embedded Linux workflow optimization using Yocto Project for ARM-based systems with CMake and ARM GCC toolchain."},
+  {
+    name: "Smart Bird Feeder",
+    description: "IoT Smart Bird Feeder using Node.js, Express.js, MQTT & WebSockets with real-time monitoring and remote control.",
+    city: "Remote",
+    country: "Finland",
+    start: "Oct 2024",
+    end: "Mar 2025",
+    link: "https://github.com/abhinav-kayastha/smart-bird-feeder",
+    points: [
+      "Built an IoT Smart Bird Feeder using Node.js, Express.js, MQTT & WebSockets for real-time monitoring and remote control of feeding activities.",
+      "Developed a responsive web dashboard (HTML, CSS, JavaScript Chart.js) to display real-time and historical data, with CSV export functionality.",
+      "Implemented an SQLite database for data logging, battery monitoring & MQTT-based control."
+    ]
+  },
+  {
+    name: "Ventilation Controller",
+    description: "Ventilation control system with Modbus communication, interrupt-driven control and MQTT for remote monitoring.",
+    city: "Remote",
+    country: "Finland",
+    start: "Jan 2024",
+    end: "Feb 2024",
+    link: "https://github.com/Nadim-2022/Ventilation-Device",
+    points: [
+      "Developed a ventilation control system to monitor and adjust temperature, humidity, CO2 and Fan Speed.",
+      "Implemented Modbus communication with sensors & actuators, real-time control using interrupts & MQTT for remote monitoring.",
+      "Created a user interface with display support."
+    ]
+  },
+  {
+    name: "Flight Simulator",
+    description: "Python-based terminal game simulating passenger transport between Finnish airports with MySQL integration.",
+    city: "Remote",
+    country: "Finland",
+    start: "Aug 2022",
+    end: "Dec 2022",
+    link: "https://github.com/abhinav-kayastha/Flight-Simulator/blob/main/main.py",
+    points: [
+      "Python-based terminal game.",
+      "Integration with MySQL database to store user and game information.",
+      "Designed for simulating passenger transport between Finnish airports with a focus on minimizing carbon emissions."
+    ]
+  },
+  {
+    name: "Personal Cloud Infrastructure with Nextcloud & Docker on Raspberry Pi",
+    description: "Self-hosted private cloud on Raspberry Pi using Nextcloud AIO, Docker and Portainer with Cloudflare Tunnel.",
+    city: "Remote",
+    country: "Finland",
+    start: "Jul 2025",
+    end: "Jul 2025",
+    link: "https://github.com/abhinav-kayastha/nextcloud-aio-with-docker-and-cloudflare-tunnels",
+    points: [
+      "Deployed a self-hosted private cloud on Raspberry Pi 4 using Nextcloud AIO, Docker & Portainer for secure, remote file access.",
+      "Configured Cloudflare Tunnel, firewall rules & SSL to expose and protect internal services.",
+      "Gained hands-on experience with Linux server administration, containerization and DNS management."
+    ]
+  },
+  {
+    name: "Embedded Linux Development with Yocto",
+    description: "Embedded Linux workflow optimization using Yocto Project for ARM-based systems with CMake and ARM GCC toolchain.",
+    city: "Oulu",
+    country: "Finland",
+    start: "Oct 2024",
+    end: "Dec 2024",
+    points: [
+      "Built and optimized an embedded Linux development workflow with Yocto Project for ARM-based systems, supporting cross-compilation and automated builds.",
+      "Integrated CMake & ARM GCC toolchain for modular, reproducible builds.",
+      "Scripted environment setup to ensure portability and scalability."
+    ]
+  },
 ];
 
 const languages = ["English", "Maithili", "Nepali", "Finnish", "Swedish"];
@@ -181,9 +276,36 @@ function renderEducation() {
   const root = document.getElementById("education-list");
   root.innerHTML = "";
   education.forEach((e) => {
-    const li = document.createElement("li");
-    li.textContent = `${e.school} — ${e.degree} (${e.year})`;
-    root.appendChild(li);
+    const item = document.createElement("div");
+    item.className = "experience-item";
+
+    const header = document.createElement("div");
+    header.className = "experience-header";
+
+    const title = document.createElement("div");
+    title.className = "experience-title";
+    title.textContent = `${e.school} — ${e.city}, ${e.country} | ${e.degree}`;
+
+    const meta = document.createElement("div");
+    meta.className = "experience-meta";
+    meta.textContent = `${e.start} – ${e.end}`;
+
+    header.appendChild(title);
+    header.appendChild(meta);
+    item.appendChild(header);
+
+    if (e.points && e.points.length > 0) {
+      const ul = document.createElement("ul");
+      ul.className = "experience-points";
+      e.points.forEach((p) => {
+        const li = document.createElement("li");
+        li.textContent = p;
+        ul.appendChild(li);
+      });
+      item.appendChild(ul);
+    }
+
+    root.appendChild(item);
   });
 }
 
@@ -191,18 +313,50 @@ function renderPublications() {
   const root = document.getElementById("publications-list");
   root.innerHTML = "";
   publications.forEach((p) => {
-    const li = document.createElement("li");
+    const item = document.createElement("div");
+    item.className = "experience-item";
+
+    const header = document.createElement("div");
+    header.className = "experience-header";
+
+    const title = document.createElement("div");
+    title.className = "experience-title";
     if (p.link) {
       const a = document.createElement("a");
       a.href = p.link;
       a.target = "_blank";
       a.rel = "noopener";
-      a.textContent = `${p.title} — ${p.venue} (${p.year})`;
-      li.appendChild(a);
+      a.textContent = `${p.title} — ${p.city}, ${p.country} | ${p.venue}`;
+      a.style.color = "inherit";
+      a.style.textDecoration = "none";
+      a.style.cursor = "pointer";
+      a.addEventListener("mouseenter", () => (a.style.color = "var(--primary)"));
+      a.addEventListener("mouseleave", () => (a.style.color = "inherit"));
+      title.appendChild(a);
     } else {
-      li.textContent = `${p.title} — ${p.venue} (${p.year})`;
+      title.textContent = `${p.title} — ${p.city}, ${p.country} | ${p.venue}`;
     }
-    root.appendChild(li);
+
+    const meta = document.createElement("div");
+    meta.className = "experience-meta";
+    meta.textContent = `${p.start} – ${p.end}`;
+
+    header.appendChild(title);
+    header.appendChild(meta);
+    item.appendChild(header);
+
+    if (p.points && p.points.length > 0) {
+      const ul = document.createElement("ul");
+      ul.className = "experience-points";
+      p.points.forEach((pt) => {
+        const li = document.createElement("li");
+        li.textContent = pt;
+        ul.appendChild(li);
+      });
+      item.appendChild(ul);
+    }
+
+    root.appendChild(item);
   });
 }
 
@@ -210,23 +364,59 @@ function renderProjects() {
   const root = document.getElementById("projects-list");
   root.innerHTML = "";
   projects.forEach((p) => {
-    const card = document.createElement("div");
-    card.className = "project-card";
+    const item = document.createElement("div");
+    item.className = "experience-item";
+
+    const header = document.createElement("div");
+    header.className = "experience-header";
+
     const title = document.createElement("div");
-    title.textContent = p.name;
-    const desc = document.createElement("div");
+    title.className = "experience-title";
+    title.textContent = `${p.name} — ${p.city}, ${p.country}`;
+
+    const meta = document.createElement("div");
+    meta.className = "experience-meta";
+    meta.textContent = `${p.start} – ${p.end}`;
+
+    header.appendChild(title);
+    header.appendChild(meta);
+    item.appendChild(header);
+
+    const desc = document.createElement("p");
+    desc.style.color = "var(--text)";
+    desc.style.fontSize = "0.95rem";
+    desc.style.marginTop = "8px";
     desc.textContent = p.description;
-    card.appendChild(title);
-    card.appendChild(desc);
+    item.appendChild(desc);
+
+    if (p.points && p.points.length > 0) {
+      const ul = document.createElement("ul");
+      ul.className = "experience-points";
+      p.points.forEach((pt) => {
+        const li = document.createElement("li");
+        li.textContent = pt;
+        ul.appendChild(li);
+      });
+      item.appendChild(ul);
+    }
+
     if (p.link) {
       const a = document.createElement("a");
       a.href = p.link;
-      a.textContent = "View";
       a.target = "_blank";
       a.rel = "noopener";
-      card.appendChild(a);
+      a.textContent = "View Project →";
+      a.style.color = "var(--primary)";
+      a.style.textDecoration = "none";
+      a.style.fontWeight = "600";
+      a.style.marginTop = "10px";
+      a.style.display = "inline-block";
+      a.addEventListener("mouseenter", () => (a.style.color = "var(--primary-2)"));
+      a.addEventListener("mouseleave", () => (a.style.color = "var(--primary)"));
+      item.appendChild(a);
     }
-    root.appendChild(card);
+
+    root.appendChild(item);
   });
 }
 
