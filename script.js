@@ -108,7 +108,7 @@ const projects = [
     { name: "Embedded Linux Development with Yocto", description: "Embedded Linux workflow optimization using Yocto Project for ARM-based systems with CMake and ARM GCC toolchain."},
 ];
 
-const languages = ["English (Native)", "Maithili (Native)", "Nepali (Native)", "Finnish (Conversational)", "Swedish (Basic)"];
+const languages = ["English", "Maithili", "Nepali", "Finnish", "Swedish"];
 
 // Render helpers
 function setIdentity() {
@@ -231,7 +231,20 @@ function renderProjects() {
 }
 
 function renderLanguages() {
-  renderList("languages-list", languages);
+  const root = document.getElementById("languages-list");
+  root.innerHTML = "";
+  languages.forEach((lang) => {
+    const span = document.createElement("span");
+    span.textContent = lang;
+    span.style.display = "inline-block";
+    span.style.padding = "8px 12px";
+    span.style.border = "1px solid rgba(255, 255, 255, 0.08)";
+    span.style.borderRadius = "999px";
+    span.style.background = "rgba(255, 255, 255, 0.04)";
+    span.style.marginRight = "8px";
+    span.style.marginBottom = "8px";
+    root.appendChild(span);
+  });
 }
 
 function setFooterYear() {
