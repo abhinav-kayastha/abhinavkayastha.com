@@ -98,6 +98,9 @@ const education = [
         degree: "Highschool Diploma, IB: International Baccalaureate",
         start: "Aug 2019",
         end: "May 2022",
+        points: ["Higher Level Subjects: Physics, Chemistry, English Language and Literature",
+          "Standard Level Subjects: Mathematics Analysis and Approaches, Economics, Swedish B"
+        ]
     }
 ];
 
