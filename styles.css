@@ -18,6 +18,15 @@
     --primary-2: #38bdf8;
     --accent: #22c55e;
     --card-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    /* New tokens */
+    --ring: rgba(125, 211, 252, 0.45);
+    --radius: 18px;
+    --radius-sm: 12px;
+    --radius-lg: 24px;
+    --shadow-2: 0 30px 90px rgba(0, 0, 0, 0.5);
+    --grid-gap: 18px;
+    /* Avatar sizing scales with viewport for better prominence */
+    --avatar-size: clamp(120px, 4rem + 2vw, 192px);
 }
 
 html,
@@ -27,19 +36,39 @@ body {
 
 body {
     font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, 'Space Grotesk', sans-serif;
-    background:
-        radial-gradient(1200px 600px at 15% -10%, rgba(56, 189, 248, 0.12), transparent 50%),
-        radial-gradient(800px 400px at 85% -5%, rgba(34, 197, 94, 0.12), transparent 45%),
-        #0b1220;
-    color: var(--text);
-    line-height: 1.7;
+    font-feature-settings: "ss01" on, "cv01" on;
+    letter-spacing: 0.01em;
+    /* Simplified, banding-resistant background */
+    background: linear-gradient(180deg, #0b1220 0%, #0a0f18 50%, #0b1220 100%);
+    position: relative;
 }
 
-/* Layout */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="1" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity="0.025"/></svg>');
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Optional subtle accent without harsh bands */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(60vw 40vh at 20% 0%, rgba(56, 189, 248, 0.08), transparent 60%),
+        radial-gradient(40vw 30vh at 80% 0%, rgba(34, 197, 94, 0.06), transparent 55%);
+    mix-blend-mode: normal;
+    z-index: -1;
+}
+
 .container {
-    max-width: 1200px;
+    max-width: 1080px;
+    /* tighter measure for readability */
     margin: 0 auto;
-    padding: 0 28px;
+    padding: 0 24px;
 }
 
 main {
@@ -51,11 +80,24 @@ main {
 .card {
     background: linear-gradient(180deg, rgba(17, 24, 39, 0.92), rgba(12, 17, 29, 0.9));
     border: 1px solid var(--border);
-    border-radius: 18px;
+    border-radius: var(--radius);
     padding: 28px;
     box-shadow: var(--card-shadow);
-    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.card::after {
+    /* soft top edge highlight */
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(125, 211, 252, 0.35), transparent);
+    opacity: 0.6;
 }
 
 .card:hover {
@@ -68,10 +110,15 @@ main {
 .site-header {
     position: sticky;
     top: 0;
-    backdrop-filter: saturate(1.2) blur(10px);
+    backdrop-filter: saturate(1.2) blur(14px);
     background: rgba(7, 11, 18, 0.75);
     border-bottom: 1px solid var(--border);
     z-index: 50;
+    transition: transform 0.28s ease;
+}
+
+.site-header.hide {
+    transform: translateY(-100%);
 }
 
 .header-content {
@@ -84,23 +131,28 @@ main {
 
 .identity {
     display: grid;
-    grid-template-columns: 90px 1fr;
-    gap: 18px;
+    grid-template-columns: var(--avatar-size) 1fr;
+    gap: 22px;
+    /* a bit more breathing room */
     align-items: center;
+    /* Pull avatar toward the left and balance with text */
+    margin-left: -40px;
 }
 
 #profile-photo {
-    width: 90px;
-    height: 90px;
-    border-radius: 16px;
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+    border-radius: 50%;
     border: 1px solid var(--border);
     background: #0a0f18;
     object-fit: cover;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    /* Nudge upward to visually center between edge and text block */
+    transform: translateY(-10px);
 }
 
 #name {
-    font-size: 1.9rem;
+    font-size: 2rem;
     font-weight: 700;
     color: var(--text);
     letter-spacing: -0.01em;
@@ -128,12 +180,14 @@ main {
     background: rgba(125, 211, 252, 0.1);
     border: 1px solid var(--border);
     transition: all 0.2s ease;
+    box-shadow: 0 8px 24px rgba(125, 211, 252, 0.15);
 }
 
 .links a:hover {
     color: #0b1220;
     background: var(--primary);
     border-color: var(--primary);
+    transform: translateY(-1px);
 }
 
 /* Nav */
@@ -151,12 +205,14 @@ main {
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.02);
     transition: background 0.2s, color 0.2s, border-color 0.2s;
+    backdrop-filter: blur(6px);
 }
 
 .nav a:hover {
     background: rgba(56, 189, 248, 0.12);
     color: var(--primary-2);
     border-color: rgba(125, 211, 252, 0.5);
+    transform: translateY(-1px);
 }
 
 /* Section headers */
@@ -206,15 +262,31 @@ main {
     display: grid;
     gap: 8px;
     border: 1px solid var(--border);
-    border-radius: 12px;
+    border-radius: var(--radius-sm);
     padding: 16px;
     background: linear-gradient(180deg, rgba(14, 21, 35, 0.85), rgba(9, 14, 24, 0.9));
+    position: relative;
     transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.experience-item::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(125, 211, 252, 0.12), rgba(34, 197, 94, 0.08));
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
 }
 
 .experience-item:hover {
     transform: translateY(-2px);
     border-color: rgba(125, 211, 252, 0.35);
+}
+
+.experience-item:hover::before {
+    opacity: 1;
 }
 
 .experience-header {
@@ -226,11 +298,13 @@ main {
 
 .experience-title {
     font-weight: 700;
+    letter-spacing: -0.005em;
 }
 
 .experience-meta {
     color: var(--muted);
     font-weight: 500;
+    font-size: 0.95rem;
 }
 
 .experience-points {
@@ -312,7 +386,8 @@ main {
     margin: 30px 0 40px;
     color: var(--muted);
     text-align: center;
-    border-top: 1px solid var(--border);
+    /* Remove top border line above copyright */
+    border-top: none;
     padding-top: 18px;
 }
 
@@ -336,12 +411,13 @@ main {
     }
 
     .identity {
-        grid-template-columns: 64px 1fr;
+        grid-template-columns: var(--avatar-size) 1fr;
+        margin-left: -24px;
+        gap: 18px;
     }
 
     #profile-photo {
-        width: 64px;
-        height: 64px;
+        transform: translateY(-6px);
     }
 
     .nav {
@@ -350,5 +426,125 @@ main {
 
     .nav a {
         padding: 8px 10px;
+    }
+
+    .card {
+        padding: 22px;
+    }
+
+    #name {
+        font-size: 1.7rem;
+    }
+
+    .experience-item {
+        padding: 14px;
+    }
+}
+
+/* Focus rings for keyboard users */
+.user-is-tabbing a:focus,
+.user-is-tabbing button:focus {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+}
+
+/* Experience enhancements */
+.experience-item {
+    border-radius: var(--radius-sm);
+    position: relative;
+}
+
+.experience-item::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(125, 211, 252, 0.12), rgba(34, 197, 94, 0.08));
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+.experience-item:hover::before {
+    opacity: 1;
+}
+
+.experience-title {
+    font-weight: 700;
+    letter-spacing: -0.005em;
+}
+
+.experience-meta {
+    font-size: 0.95rem;
+}
+
+/* Projects CTA */
+.project-card a,
+.experience-item a {
+    text-underline-offset: 3px;
+}
+
+.experience-item a:hover {
+    text-decoration: underline;
+}
+
+/* Subtle section entrance animation */
+@keyframes sectionIn {
+    from {
+        transform: translateY(6px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.card {
+    animation: sectionIn 300ms ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .card {
+        animation: none;
+    }
+}
+
+/* Print stylesheet (clean CV export) */
+@media print {
+    :root {
+        --bg: #ffffff;
+        --text: #111827;
+        --muted: #6b7280;
+        --border: #e5e7eb;
+        --primary: #0ea5e9;
+    }
+
+    body {
+        background: #fff;
+        color: var(--text);
+        line-height: 1.5;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .site-header,
+    .nav,
+    .site-footer {
+        display: none !important;
+    }
+
+    .card {
+        border: 1px solid var(--border);
+        box-shadow: none;
+        padding: 12px;
+        break-inside: avoid;
+    }
+
+    .experience-item {
+        border: none;
+        padding: 0;
     }
 }

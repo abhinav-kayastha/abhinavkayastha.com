@@ -457,3 +457,28 @@ function init() {
 }
 
 document.addEventListener("DOMContentLoaded", init);
+
+// Hide header on scroll down, show on scroll up
+let lastScrollY = 0;
+let ticking = false;
+const headerEl = document.querySelector('.site-header');
+
+function updateHeaderOnScroll() {
+  const currentY = window.scrollY || window.pageYOffset;
+  const threshold = 80; // don't hide until scrolled a bit
+
+  if (currentY > lastScrollY && currentY > threshold) {
+    headerEl && headerEl.classList.add('hide');
+  } else {
+    headerEl && headerEl.classList.remove('hide');
+  }
+  lastScrollY = currentY;
+  ticking = false;
+}
+
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    window.requestAnimationFrame(updateHeaderOnScroll);
+    ticking = true;
+  }
+}, { passive: true });

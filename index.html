@@ -7,6 +7,22 @@
   <meta name="description" content="Portfolio of Abhinav Kayastha" />
   <title>Abhinav Kayastha — Portfolio</title>
   <link rel="stylesheet" href="styles.css" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" content="#0b1220" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <style>
+    /* Progressive enhancement: smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Reduce motion support */
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -87,6 +103,18 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    // Keyboard focus ring only when tabbing (accessibility polish)
+    (function () {
+      function handleFirstTab(e) {
+        if (e.key === 'Tab') {
+          document.body.classList.add('user-is-tabbing');
+          window.removeEventListener('keydown', handleFirstTab);
+        }
+      }
+      window.addEventListener('keydown', handleFirstTab);
+    })();
+  </script>
 </body>
 
 </html>
