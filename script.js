@@ -25,7 +25,7 @@ const experience = [
     start: "Sep 2025",
     end: "Present",
     points: [
-      "Creating scripts to monitor health of base transciever stations (BTS).",
+      "Creating tools to monitor health of base transciever stations (BTS).",
       "Developing tailormade applications for telecom operators worldwide.",
     ],
   },
