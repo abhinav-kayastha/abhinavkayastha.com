@@ -26,7 +26,8 @@ const experience = [
     end: "Present",
     points: [
       "Creating tools to monitor health of base transciever stations (BTS).",
-      "Developing tailormade applications for telecom operators worldwide.",
+      "Developing tailormade applications for telecom operators globally for PIM identification.",
+      "Expanding previous projects with building and deployment on Windows platforms using GitLab runners' tags."
     ],
   },
 {
