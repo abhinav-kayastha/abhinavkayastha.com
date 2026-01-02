@@ -1,6 +1,6 @@
 // Content configuration — edit here to update your site
 const profile = {
-  photoUrl: "https://media.licdn.com/dms/image/v2/D4E03AQGyiy_xp9PidQ/profile-displayphoto-scale_200_200/B4EZgYGibqGUAg-/0/1752751024557?e=1767225600&v=beta&t=thIalBf9iGq2oSeg6fTReGyjqBiOlG5i_urwpi9wv6k",
+  photoUrl: "https://media.licdn.com/dms/image/v2/D4E03AQGyiy_xp9PidQ/profile-displayphoto-crop_800_800/B4EZgYGibqGUAQ-/0/1752751024462?e=1769040000&v=beta&t=TwTYskclKqwv_dMQclh9YzHJbwho3aky25N3L-Tdnn0",
   name: "Abhinav Kayastha",
   tagline: "Maintenance Engineer at Nokia developing Software Solutions for BTS.",
   links: {
