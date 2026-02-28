@@ -1,6 +1,6 @@
 // Content configuration — edit here to update your site
 const profile = {
-  photoUrl: headshot_kayastha_abhinav.jpg,
+  photoUrl: "headshot_kayastha_abhinav.jpg",
   name: "Abhinav Kayastha",
   tagline: "Maintenance Engineer at Nokia developing Software Solutions for BTS.",
   links: {
